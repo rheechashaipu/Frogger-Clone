@@ -25,8 +25,8 @@ Enemy.prototype.update = function(dt) {
     //Reset bug location after moving off game board
     if(this.x > 510){
       this.x = -70;
-      this.speed = Math.floor(Math.random() * (180 - 60 + 1)) + 60;;
-    };
+      this.speed = Math.floor(Math.random() * (180 - 60 + 1)) + 60;
+    }
     this.collision();
 };
 //Credit for collision method goes to Udacity member mcs and Mozilla's 2D game tutorial
@@ -38,7 +38,7 @@ Enemy.prototype.collision = function(){
     this.y < player.y + 40){
     player.x = 200;
     player.y = 400;
-  };
+  }
 };
 
 
@@ -63,7 +63,7 @@ Player.prototype.update = function() {
   if(this.y <= 0){
     this.x = 200;
     this.y = 400;
-  };
+  }
 };
 
 Player.prototype.render = function(){
@@ -75,24 +75,24 @@ Player.prototype.handleInput = function(keyCodes){
         case "left":
           if(this.x>0){
             this.x = this.x - 55;
-          };
+          }
           break;
         case "right":
           if(this.x<410){
             this.x = this.x + 55;
-          };
+          }
           break;
         case "up":
           if(this.y>0+10){
             this.y = this.y - 43;
-          };
+          }
           break;
         case "down":
           if(this.y<390){
            this.y = this.y + 43;
-          };
+          }
           break;
-    };
+    }
 };
 
 // Now instantiate your objects.
@@ -103,7 +103,7 @@ var allEnemies = [];
 for(i=0;i<3;i++){
   var randSpeed = Math.floor(Math.random() * (180 - 60 + 1)) + 60;
   allEnemies.push(new Enemy(-50,43+i*90, randSpeed));
-};
+}
 
 //instantiate player object
 
@@ -120,3 +120,5 @@ document.addEventListener('keyup', function(e) {
     };
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+
